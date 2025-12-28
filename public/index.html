@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & News App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Weather & News Dashboard</h1>
+            <p class="subtitle">Get real-time weather data and local news for any city</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="Enter city name (e.g., London, New York, Tokyo)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn" onclick="fetchWeatherData()">Search</button>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+
+        <div id="loadingIndicator" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading weather and news data...</p>
+        </div>
+
+        <div id="weatherSection" class="weather-section" style="display: none;">
+            <div class="weather-card">
+                <div class="weather-header">
+                    <h2 id="cityName"></h2>
+                    <span id="countryCode" class="country-badge"></span>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temperature-section">
+                        <div class="icon-container">
+                            <img id="weatherIcon" src="" alt="Weather icon">
+                        </div>
+                        <div class="temp-info">
+                            <div class="temperature" id="temperature"></div>
+                            <div class="description" id="description"></div>
+                        </div>
+                    </div>
+
+                    <div class="weather-details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Feels Like</span>
+                            <span class="detail-value" id="feelsLike"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind Speed</span>
+                            <span class="detail-value" id="windSpeed"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value" id="pressure"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Rain (3h)</span>
+                            <span class="detail-value" id="rainVolume"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Coordinates</span>
+                            <span class="detail-value" id="coordinates"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="newsSection" class="news-section" style="display: none;">
+            <h2 class="section-title">📰 Local News</h2>
+            <div id="newsArticles" class="news-grid"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Powered by OpenWeather API & News API</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
